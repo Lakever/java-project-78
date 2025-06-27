@@ -38,6 +38,7 @@ sonar {
         property("sonar.projectKey", "Lakever_java-project-78")
         property("sonar.organization", "lakever")
         property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml")
     }
 }
 

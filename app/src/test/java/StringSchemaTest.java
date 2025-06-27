@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ValidatorTest {
+public class StringSchemaTest {
     private Validator v;
 
     @BeforeEach

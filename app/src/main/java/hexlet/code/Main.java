@@ -4,10 +4,11 @@ public class Main {
     public static void main(String[] args) {
 
         var v = new Validator();
-        var schema = v.string();
+        var schemaString = v.string();
+        var schemaNumber = v.number();
 
-        System.out.println(schema.isValid("Hower"));
-        System.out.println();
+        System.out.println(schemaString.isValid("Hower"));
+        System.out.println(schemaNumber.positive().isValid(10));
 //        System.out.println(schema.required().minLength(3).contains("zzz").isValid("zz"));
     }
 }
