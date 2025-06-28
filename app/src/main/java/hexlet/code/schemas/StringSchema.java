@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 public class StringSchema extends BaseSchema<String>{
 
     private final List<Predicate<String>> rules = new ArrayList<>();
-    private boolean isRequired = false;
+//    private boolean isRequired = false;
 
     public StringSchema() {
     }

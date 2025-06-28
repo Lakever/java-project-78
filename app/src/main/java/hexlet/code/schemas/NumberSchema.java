@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 public class NumberSchema extends BaseSchema<Integer> {
     private final List<Predicate<Integer>> rules = new ArrayList<>();
-    private boolean isRequired = false;
+//    private boolean isRequired = false;
 
     public NumberSchema() {
     }
