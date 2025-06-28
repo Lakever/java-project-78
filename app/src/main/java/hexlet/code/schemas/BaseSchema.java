@@ -9,7 +9,7 @@ public abstract class BaseSchema<T> {
     protected boolean isRequired = false;
 
     public boolean isValid(T value) {
-        if (!isRequired && (value != null || value != "")) {
+        if (!isRequired && (value == null || value.equals(""))) {
             return true;
         }
         for (Predicate<T> rule : rules) {

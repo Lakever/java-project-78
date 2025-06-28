@@ -26,7 +26,7 @@ public class MapSchemaTest {
         var actual = schema.isValid(data);
         assertEquals(expected, actual);
     }
-    
+
 
     @Test
     public void isValidNullHashMap() throws IOException {
