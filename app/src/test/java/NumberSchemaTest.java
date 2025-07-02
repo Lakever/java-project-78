@@ -12,12 +12,12 @@ public class NumberSchemaTest {
 
     @BeforeEach
     public void setUp() {
-        Validator v = new Validator();
+        this.v = new Validator();
     }
 
     @Test
     public void isValidWithOut() throws IOException {
-        var schema = v.number();
+        var schema = this.v.number();
 
         var expected = true;
         var actual = schema.isValid(4);
@@ -26,7 +26,7 @@ public class NumberSchemaTest {
 
     @Test
     public void isValidNullCheck() throws IOException {
-        var schema = v.number();
+        var schema = this.v.number();
 
         var expected = true;
         var actual = schema.isValid(null);
@@ -35,7 +35,7 @@ public class NumberSchemaTest {
 
     @Test
     public void positiveAndIsValid() throws IOException {
-        var schema = v.number();
+        var schema = this.v.number();
 
         var expected = true;
         var actual = schema.positive().isValid(null);
@@ -44,7 +44,7 @@ public class NumberSchemaTest {
 
     @Test
     public void checkedAll() throws IOException {
-        var schema = v.number();
+        var schema = this.v.number();
 
         var expected = true;
         var actual = schema.required().positive().range(30, 60).isValid(54);

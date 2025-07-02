@@ -1,12 +1,9 @@
 package hexlet.code.schemas;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Predicate;
 
 
 
 public class NumberSchema extends BaseSchema<Integer> {
-    private final List<Predicate<Integer>> rules = new ArrayList<>();
+//    private final List<Predicate<Integer>> rules = new ArrayList<>();
 //    private boolean isRequired = false;
 
     public NumberSchema() {
