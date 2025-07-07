@@ -50,4 +50,6 @@ public class NumberSchemaTest {
         var actual = schema.required().positive().range(30, 60).isValid(54);
         assertEquals(expected, actual);
     }
+
+
 }

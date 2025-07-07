@@ -62,5 +62,13 @@ public class StringSchemaTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void testNullWithoutRequired() {
+        var schema = v.string();
+        var actual = schema.isValid(null);
+        var expected = true;
+        assertEquals(expected, actual);
+    }
+
 }
 

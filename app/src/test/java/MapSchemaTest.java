@@ -21,7 +21,6 @@ public class MapSchemaTest {
     public void isValidWithOut() throws IOException {
         var schema = this.v.map();
         Map<String, String> data = new HashMap<>();
-//        data.put();
 
         var expected = true;
         var actual = schema.isValid(data);
