@@ -21,5 +21,6 @@
 - [Gradle](https://gradle.org/install/)
 
 # Установка 
+```bash
 git clone https://github.com/Lakever/java-project-78.git
 cd java-project-78
