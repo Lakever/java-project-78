@@ -20,4 +20,5 @@ public class Validator {
     public static MapSchema map() {
         return new MapSchema();
     }
+
 }
