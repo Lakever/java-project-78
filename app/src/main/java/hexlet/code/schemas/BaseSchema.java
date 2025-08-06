@@ -1,12 +1,12 @@
 package hexlet.code.schemas;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Predicate;
 
 
 public abstract class BaseSchema<T> {
-    protected final List<Predicate<T>> rules = new ArrayList<>();
+    protected final Map<String, Predicate<T>> rules = new HashMap<String, Predicate<T>>();
     protected boolean isRequired = false;
 
 //    /**
@@ -23,7 +23,7 @@ public abstract class BaseSchema<T> {
         if (!isRequired && (value == null || value.equals(""))) {
             return true;
         }
-        for (Predicate<T> rule : rules) {
+        for (Predicate<T> rule : rules.values()) {
             if (!rule.test(value)) {
                 return false;
             }

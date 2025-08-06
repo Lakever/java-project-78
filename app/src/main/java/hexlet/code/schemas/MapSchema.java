@@ -11,11 +11,15 @@ public final class MapSchema extends BaseSchema<Map<String, String>> {
 
     public MapSchema required() {
         isRequired = true;
-        rules.add(value -> value != null && !value.isEmpty());
+        Predicate<Map<String, String>> rule = map -> map != null && !map.isEmpty();
+        rules.put("required", rule);
         return this;
     }
     public MapSchema sizeof(int size) {
-        rules.add(value -> value.size() == size);
+        Predicate<Map<String, String>> rule = map -> map != null
+                && !map.isEmpty()
+                && map.size() <= size;
+        rules.put("sizeof", rule);
         return this;
     }
 
@@ -26,7 +30,7 @@ public final class MapSchema extends BaseSchema<Map<String, String>> {
                     var schema = entry.getValue();
                     return schema.isValid((T) v);
                 });
-        rules.add(ruleShaped);
+        rules.put("shape", ruleShaped);
         return this;
     }
 }

@@ -15,7 +15,23 @@ public final class StringSchemaTest {
         this.v = new Validator(); // только Validator
     }
 
+    @Test
+    public void testLOL() throws IOException {
+        var schema = this.v.string();
 
+        var expected = true;
+        var actual = schema.minLength(10).minLength(4).isValid("Hexlet");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testNullAfterRequired() throws IOException {
+        var schema = this.v.string();
+
+        var expected = false;
+        var actual = schema.required().isValid(null);
+        assertEquals(expected, actual);
+    }
 
     @Test
     public void testAllRules() throws IOException {

@@ -39,6 +39,16 @@ public final class MapSchemaTest {
     }
 
     @Test
+    public void isValidNullAfterRequired() throws IOException {
+        var schema = this.v.map();
+        Map<String, String> data = new HashMap<>();
+
+        var expected = true;
+        var actual = schema.isValid(data);
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void isValidWithAll() throws IOException {
         var schema = this.v.map();
         Map<String, String> data = new HashMap<>();

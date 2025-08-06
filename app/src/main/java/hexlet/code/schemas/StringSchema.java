@@ -1,5 +1,7 @@
 package hexlet.code.schemas;
 
+import java.util.function.Predicate;
+
 public final class StringSchema extends BaseSchema<String> {
 
     public StringSchema() {
@@ -7,17 +9,20 @@ public final class StringSchema extends BaseSchema<String> {
 
     public StringSchema required() {
         isRequired = true;
-        rules.add(value -> value != null && !value.isEmpty());
+        Predicate<String> rule = value -> value != null && !value.isEmpty();
+        rules.put("required", rule);
         return this;
     }
 
     public StringSchema minLength(int size) {
-        rules.add(value -> value != null && value.length() >= size);
+        Predicate<String> rule = value ->  value != null && value.length() >= size;
+        rules.put("minLength", rule);
         return this;
     }
 
     public StringSchema contains(String substr) {
-        rules.add(value -> value != null && value.contains(substr));
+        Predicate<String> rule = value -> value != null && value.contains(substr);
+        rules.put("contains", rule);
         return this;
     }
 }
