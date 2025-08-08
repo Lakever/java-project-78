@@ -9,7 +9,7 @@ public final class StringSchema extends BaseSchema<String> {
 
     public StringSchema required() {
         isRequired = true;
-        Predicate<String> rule = value -> value != null && !value.isEmpty();
+        Predicate<String> rule = value -> value != null && value != "" && value != " ";
         rules.put("required", rule);
         return this;
     }

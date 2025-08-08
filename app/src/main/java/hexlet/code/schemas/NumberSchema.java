@@ -16,7 +16,7 @@ public final class NumberSchema extends BaseSchema<Integer> {
     }
 
     public NumberSchema positive() {
-        Predicate<Integer> rule = num -> num != null && num >= 0;
+        Predicate<Integer> rule = num -> num != null && num > 0;
         rules.put("positive", rule);
         return this;
     }

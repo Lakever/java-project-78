@@ -19,9 +19,19 @@ public abstract class BaseSchema<T> {
 //     * @implSpec Подклассы могут переопределять этот метод для кастомной логики,
 //     *           но должны учитывать состояние isRequired и список rules.
 //     */
+
     public final boolean isValid(T value) {
-        if (!isRequired && (value == null || value.equals(""))) {
-            return true;
+        if (!isRequired) {
+            // Если не required, то null или "" или пустая мапа — валидно
+            if (value == null) {
+                return true;
+            }
+            if (value instanceof String s && s.isEmpty()) {
+                return true;
+            }
+            if (value instanceof Map<?, ?> m && m.isEmpty()) {
+                return true;
+            }
         }
         for (Predicate<T> rule : rules.values()) {
             if (!rule.test(value)) {
