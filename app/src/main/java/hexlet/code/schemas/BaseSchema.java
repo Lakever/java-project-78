@@ -26,12 +26,6 @@ public abstract class BaseSchema<T> {
             if (value == null) {
                 return true;
             }
-            if (value instanceof String s && s.isEmpty()) {
-                return true;
-            }
-            if (value instanceof Map<?, ?> m && m.isEmpty()) {
-                return true;
-            }
         }
         for (Predicate<T> rule : rules.values()) {
             if (!rule.test(value)) {
