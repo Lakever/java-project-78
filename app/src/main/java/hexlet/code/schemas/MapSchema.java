@@ -26,7 +26,7 @@ public final class MapSchema extends BaseSchema<Map<String, String>> {
     public MapSchema shape(Map<String, BaseSchema<String>> schemas) {
         Predicate<Map<String, String>> ruleShaped = map ->
                 schemas.entrySet().stream().allMatch(entry -> {
-                    String value = map.get(entry.getKey()); 
+                    String value = map.get(entry.getKey());
                     BaseSchema<String> schema = entry.getValue();
                     return schema.isValid(value); // проверяем значение по схеме
                 });
